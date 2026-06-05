@@ -99,7 +99,7 @@ class VehicleControllerParams:
         dtype=float,
     )
 
-    pid_kp = np.array([40.0, 40.0, 40.0, 10.0, 10.0, 10.0], dtype=float)
+    pid_kp = np.array([40.0, 40.0, 40.0, 2.0, 2.0, 1.0], dtype=float)
     pid_ki = np.array([0.0, 0.0, 0.0, 0.0, 0.0, 0.0], dtype=float)
     pid_kd = np.array([15.0, 15.0, 15.0, 2.0, 2.0, 5.0], dtype=float)
 
