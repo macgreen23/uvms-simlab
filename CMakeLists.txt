@@ -62,6 +62,8 @@ simlab_python_entrypoint(planner_action_server_node simlab.planner_action_server
 simlab_python_entrypoint(camera_viewer simlab.opencv_camera_viewer)
 simlab_python_entrypoint(plot_replay_session simlab.replay_session_plotter)
 simlab_python_entrypoint(replay_plot_node simlab.replay_plot_node)
+simlab_python_entrypoint(mcap_to_replay_recording simlab.mcap_to_replay_recording)
+simlab_python_entrypoint(mcap_to_diff_uv_csv simlab.mcap_to_diff_uv_csv)
 
 install(
   DIRECTORY
