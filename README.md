@@ -12,6 +12,7 @@ A field-ready ROS 2 lab for **Underwater Vehicle–Manipulator Systems**. `uvms_
 - **Control modes** – PS4 teleop, joint-space torque control, or direct thruster PWM via launch args.
 - **Visualization tooling** – workspace clouds, vehicle-base clouds, backend-published overlays, and opt-in voxel/collision debug markers.
 - **Data logging** – rosbag2 MCAP recorder for repeatable datasets.
+- **diff_uv export** – convert MCAP recordings into the CSV schema used by `usage/dynamic_parameter_identification.ipynb`.
 - **Perception extras** – optional RGB-to-pointcloud (MiDaS) for quick depth-based clouds.
 
 ## Requirements
@@ -86,6 +87,14 @@ ros2 launch ros2_control_blue_reach_5 robot_system_multi_interface.launch.py \
 ```
 
 > 💡 Recording: `record_data:=true` starts rosbag2 MCAP logging under `~/ros_ws/recordings/mcap/uvms_bag_YYYYmmdd_HHMMSS`.
+
+To convert a bag into the CSV format expected by the diff_uv dynamic identification notebook:
+
+```bash
+ros2 run simlab mcap_to_diff_uv_csv /path/to/bag /path/to/output.csv --robot-prefix robot_1_
+```
+
+The exporter fills unavailable fields with zeros and lets you override payload inertia values with `--payload-mass`, `--payload-ixx`, `--payload-iyy`, and `--payload-izz`.
 
 > 💡 Hardware swap: set `use_vehicle_hardware:=true` and `use_manipulator_hardware:=true` to put your BlueROV2 Heavy, Reach Alpha 5, and A50 DVL directly into the loop.
 
