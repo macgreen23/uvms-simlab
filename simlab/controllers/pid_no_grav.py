@@ -64,6 +64,9 @@ class LowLevelPidControllerNoGrav(ControllerTemplate):
             f"arm_kp={self.arm_params.pid_kp.tolist()}, "
             f"arm_ki={self.arm_params.pid_ki.tolist()}, "
             f"arm_kd={self.arm_params.pid_kd.tolist()}"
+            f"vehicle_kp={self.vehicle_params.pid_kp.tolist()}, "
+            f"vehicle_ki={self.vehicle_params.pid_ki.tolist()}, "
+            f"vehicle_kd={self.vehicle_params.pid_kd.tolist()}"
         )
 
     def reset_controller_state(self) -> None:
