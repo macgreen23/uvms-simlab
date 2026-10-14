@@ -71,6 +71,18 @@ FIELDNAMES = [
     "vehicle_dp",
     "vehicle_dq",
     "vehicle_dr",
+    "vehicle_P_x_x",
+    "vehicle_P_y_y",
+    "vehicle_P_z_z",
+    "vehicle_P_roll_roll",
+    "vehicle_P_pitch_pitch",
+    "vehicle_P_yaw_yaw",
+    "vehicle_P_u_u",
+    "vehicle_P_v_v",
+    "vehicle_P_w_w",
+    "vehicle_P_p_p",
+    "vehicle_P_q_q",
+    "vehicle_P_r_r",
     "target_vehicle_x",
     "target_vehicle_y",
     "target_vehicle_z",
@@ -280,6 +292,14 @@ def _extract_rows(
             _interface_value(msg, vehicle_name, "pitch"),
             _interface_value(msg, vehicle_name, "yaw"),
         ]
+        pose_cov = [
+            _interface_value(msg, vehicle_name, "P_x_x"),
+            _interface_value(msg, vehicle_name, "P_y_y"),
+            _interface_value(msg, vehicle_name, "P_z_z"),
+            _interface_value(msg, vehicle_name, "P_roll_roll"),
+            _interface_value(msg, vehicle_name, "P_pitch_pitch"),
+            _interface_value(msg, vehicle_name, "P_yaw_yaw"),
+        ]
         body_vel = [
             _interface_value(msg, vehicle_name, "velocity.x"),
             _interface_value(msg, vehicle_name, "velocity.y"),
@@ -287,6 +307,14 @@ def _extract_rows(
             _interface_value(msg, vehicle_name, "angular_velocity.x"),
             _interface_value(msg, vehicle_name, "angular_velocity.y"),
             _interface_value(msg, vehicle_name, "angular_velocity.z"),
+        ]
+        body_vel_cov = [
+            _interface_value(msg, vehicle_name, "P_u_u"),
+            _interface_value(msg, vehicle_name, "P_v_v"),
+            _interface_value(msg, vehicle_name, "P_w_w"),
+            _interface_value(msg, vehicle_name, "P_p_p"),
+            _interface_value(msg, vehicle_name, "P_q_q"),
+            _interface_value(msg, vehicle_name, "P_r_r"),
         ]
         body_acc = [
             _interface_value(msg, vehicle_name, "linear_acceleration.x"),
@@ -332,6 +360,8 @@ def _extract_rows(
             + pose
             + body_vel
             + body_acc
+            + pose_cov
+            + body_vel_cov
             + target_pose
             + target_vel
             + target_acc
