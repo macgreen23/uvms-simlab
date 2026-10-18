@@ -1,0 +1,8 @@
+profiles:
+  xbox:
+    vendor_id: [0x045E]
+    name_keywords: ["xbox", "microsoft"]
+
+  dualshock4:
+    vendor_id: [0x054C]
+    name_keywords: ["dualshock", "sony"]
